@@ -6,7 +6,11 @@ import {
     Switch,
     Redirect,
 } from 'react-router-dom'
-// 引入路由表
+// 适配
+import 'lib-flexible'
+// 全局样式
+import './utils/glabel-style.less'
+// 路由表
 import router from './router/index'
 
 function Index() {
