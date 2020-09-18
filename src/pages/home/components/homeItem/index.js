@@ -30,20 +30,23 @@ export default class HomeItem extends Component {
         return (
             <div className="home-item">
                 <TopTag text="最新发布" type="home" />
-                <div className="padding">
-                    {this.state.listData.map((item, index) => {
-                        return (
-                            <ListItem
-                                key={index}
-                                title={item.title}
-                                time={item.createTime}
-                                tag={item.className}
-                                {...this.props}
-                                goDetail={this.goDetail.bind(this, item.id)}
-                            />
-                        )
-                    })}
-                </div>
+                {this.state.listData.length > 0 && (
+                    <div className="padding">
+                        {this.state.listData.map((item, index) => {
+                            return (
+                                <ListItem
+                                    key={index}
+                                    title={item.title}
+                                    time={item.createTime}
+                                    tag={item.className}
+                                    {...this.props}
+                                    goDetail={this.goDetail.bind(this, item.id)}
+                                />
+                            )
+                        })}
+                    </div>
+                )}
+                {this.state.listData.length === 0 && <div className="no-value">暂无数据</div>}
             </div>
         )
     }

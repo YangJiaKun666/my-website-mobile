@@ -8,7 +8,7 @@ export default class SearchItem extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            postList: [],
+            postList: null,
             putData: {
                 pageNum: 1,
                 pageSize: 10,
@@ -22,21 +22,31 @@ export default class SearchItem extends Component {
                 <SearchBar
                     placeholder="搜索关键字"
                     onSubmit={this.submit.bind(this)}
-                    onClear={this.submit.bind(this)}
                 />
-                <div className="padding">
-                    {this.state.postList.map((item, index) => {
-                        return (
-                            <ListItem
-                                key={index}
-                                title={item.title}
-                                time={item.createTime}
-                                tag={item.className}
-                                goDetail={this.goDetail.bind(this, item.id)}
-                            />
-                        )
-                    })}
-                </div>
+                {this.state.postList !== null &&
+                    this.state.postList.length > 0 && (
+                        <div className="padding">
+                            {this.state.postList.map((item, index) => {
+                                return (
+                                    <ListItem
+                                        key={index}
+                                        title={item.title}
+                                        time={item.createTime}
+                                        tag={item.className}
+                                        {...this.props}
+                                        goDetail={this.goDetail.bind(
+                                            this,
+                                            item.id
+                                        )}
+                                    />
+                                )
+                            })}
+                        </div>
+                    )}
+                {this.state.postList !== null &&
+                    this.state.postList.length === 0 && (
+                        <div className="no-value">暂无数据</div>
+                    )}
             </div>
         )
     }

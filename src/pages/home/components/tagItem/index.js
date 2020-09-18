@@ -61,19 +61,23 @@ export default class TagItem extends Component {
                     </div>
                 </div>
                 <TopTag text={this.state.currentTags} type="tag" />
-                <div className="padding">
-                    {this.state.postList.map((item, index) => {
-                        return (
-                            <ListItem
-                                key={index}
-                                title={item.title}
-                                time={item.createTime}
-                                tag={item.className}
-                                goDetail={this.goDetail.bind(this, item.id)}
-                            />
-                        )
-                    })}
-                </div>
+                {this.state.postList.length > 0 && (
+                    <div className="padding">
+                        {this.state.postList.map((item, index) => {
+                            return (
+                                <ListItem
+                                    key={index}
+                                    title={item.title}
+                                    time={item.createTime}
+                                    tag={item.className}
+                                    {...this.props}
+                                    goDetail={this.goDetail.bind(this, item.id)}
+                                />
+                            )
+                        })}
+                    </div>
+                )}
+                {this.state.postList.length === 0 && <div className="no-value">暂无数据</div>}
             </div>
         )
     }
