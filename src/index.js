@@ -15,7 +15,12 @@ import './utils/glabel-style.less'
 // 路由表
 import router from './router/index'
 
-function Index(props) {
+const userAgentInfo = navigator.userAgent.toLocaleLowerCase()
+if(userAgentInfo.indexOf('mobile') === -1) {
+    window.location.href = 'http://yjk-dev.com:8301/'
+}
+
+function Index() {
     return (
         <Router>
             <Redirect to="/home" />
