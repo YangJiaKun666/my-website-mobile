@@ -1,11 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-    HashRouter as Router,
-    Route,
-    Switch,
-    Redirect,
-} from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 // 适配
 import 'lib-flexible'
 // antd-mobile组件样式
@@ -14,11 +9,6 @@ import 'antd-mobile/dist/antd-mobile.css'
 import './utils/glabel-style.less'
 // 路由表
 import router from './router/index'
-
-const userAgentInfo = navigator.userAgent.toLocaleLowerCase()
-if(userAgentInfo.indexOf('mobile') === -1) {
-    window.location.href = 'http://yjk-dev.com:8301/'
-}
 
 function Index() {
     return (
