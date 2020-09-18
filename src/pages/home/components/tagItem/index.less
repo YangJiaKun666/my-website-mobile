@@ -1,0 +1,42 @@
+.tags-item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    z-index: -1;
+    transition-duration: 0.2s;
+    .tags-list {
+        height: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+        width: 50%;
+        background: #fff;
+        border-radius: 10px 0 0 10px;
+        transform: translateX(100%);
+        transition-duration: 0.2s;
+        .tag-box {
+            width: 100%;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 35px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0 10px;
+            transition-duration: 0.2s;
+        }
+        .tag-box:active {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+.tags-item-active {
+    opacity: 1 !important;
+    z-index: 1 !important;
+}
+.tags-list-active {
+    transform: translateX(0) !important;
+}

@@ -8,12 +8,14 @@ import {
 } from 'react-router-dom'
 // 适配
 import 'lib-flexible'
+// antd-mobile组件样式
+import 'antd-mobile/dist/antd-mobile.css'
 // 全局样式
 import './utils/glabel-style.less'
 // 路由表
 import router from './router/index'
 
-function Index() {
+function Index(props) {
     return (
         <Router>
             <Redirect to="/home" />
